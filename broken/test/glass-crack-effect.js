@@ -393,10 +393,6 @@ function renderCrackEffectAll($canvas, $image, paths, options)
                freq: options.noise.freq * 0.01 / (line.level * options.noise.decay * 0.01 + 1)
             }
         );
-
-      if (options.debug)
-			renderCrackEffectDebug($canvas[5], $image[0], line.p1, line.p2, line.desc, options);
-
    }
 }
 

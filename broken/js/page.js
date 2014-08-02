@@ -101,7 +101,7 @@ function initFirstPageSize() {
     $('#draw-grey').width(w).height(h);
 }
 
-$('#test_aaa').on('click', function (e) {
+$('#test_aaa').on('touchstart', function (e) {
     var opt = $.extend(DEFAULT_OPTIONS, {
         height: $image[0].clientHeight,
         width: $image[0].clientWidth,
