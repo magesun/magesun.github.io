@@ -111,11 +111,8 @@ function initFirstPageSize() {
         })
 
         var paths = findCrackEffectPaths(opt);
-        alert(1)
         clearDrawing($canvas);
-        alert(2)
         renderCrackEffectAll($canvas, $image, paths, opt);
-        alert(3)
     });
 }
 

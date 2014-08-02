@@ -86,9 +86,6 @@ function renderCrackEffectReflect(cvs, img, p1, p2, line, options)
 
        tx = line.tx,
        ty = line.ty,
-
-       cp = line.cpt,
-
        dd = line.dl / 3,
        grd,
        clr = jQuery.Color(options.color);
@@ -243,8 +240,6 @@ function renderCrackEffectNoise(cvs, img, p1, p2, line, options)
        freq = options.freq,
 
        dl = line.dl,
-       mp = dl / 2,
-
        mpp = line.mpp,
        cma = line.cma,
        mpl1 = line.mpl1,
@@ -302,49 +297,9 @@ function renderCrackEffectNoise(cvs, img, p1, p2, line, options)
    }
 }
 
-function renderCrackEffectDebug(cvs, img, p1, p2, line, options)
-{
-   var ctx = cvs.getContext('2d'),
 
-       tx = line.tx,
-       ty = line.ty,
-
-       sx = line.sx,
-       sy = line.sy,
-
-       mpp = line.mpp,
-       cma = line.cma/2,
-       mpl1 = line.mpl1,
-
-       cp = line.cpt;
-
-   ctx.strokeStyle = 'yellow';
-   ctx.fillStyle = 'lime';
-
-   ctx.fillRect(p1.x, p1.y, 3, 3);
-
-   ctx.beginPath();
-   ctx.moveTo(p1.x, p1.y);
-   ctx.lineTo(p2.x, p2.y);
-   ctx.stroke();
-
-   ctx.strokeStyle = 'red';
-
-   ctx.beginPath();
-   ctx.moveTo(p1.x+mpl1*sx, p1.y+mpl1*sy);
-   ctx.lineTo(p1.x+mpl1*sx+cma*tx, p1.y+mpl1*sy+cma*ty);
-   ctx.stroke();
-
-   ctx.strokeStyle = 'green';
-
-   ctx.beginPath();
-   ctx.moveTo(p1.x+(mpl1-5)*sx+cma*tx, p1.y+(mpl1-5)*sy+cma*ty);
-   ctx.lineTo(p1.x+(mpl1+5)*sx+cma*tx, p1.y+(mpl1+5)*sy+cma*ty);
-   ctx.stroke();
-}
-
-function renderCrackEffectAll($canvas, $image, paths, options)
-{
+function renderCrackEffectAll($canvas, $image, paths, options) {
+    alert($canvas + '-' + $image + '-' + options)
    var i, line,
        len = paths.length;
 
