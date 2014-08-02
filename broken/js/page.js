@@ -1,48 +1,3 @@
-(function() {
-    var HAS_TOUCH = !!('ontouchstart' in window),
-        START_EV = HAS_TOUCH ? 'touchstart': 'mousedown',
-        END_EV = HAS_TOUCH ? 'touchend' : 'mouseup',
-        TAP_EV = 'tap',
-        DOUBLE_TAP_EV = 'doubletap',
-        MAIN_MOUSE_BUTTON_DOWN = 0,
-        MIN_TAP_INTERVAL = 400,
-        MAX_TAP_MOVEMENT = 10,
-        isCancel = false,
-        lastTapTimestamp = 0,
-        touchstartEvent,
-        touchendEvent,
-        touchstartX,
-        touchstartY;
-    document.addEventListener(START_EV, function(e) {
-        touchstartEvent = HAS_TOUCH ? e.touches[0] : e;
-        if (HAS_TOUCH && e.touches.length > 1) isCancel = true;
-        touchstartX = parseInt(touchstartEvent.pageX);
-        touchstartY = parseInt(touchstartEvent.pageY);
-    }, false);
-    document.addEventListener(END_EV, function(e) {
-        var absOffsetX, absOffsetY, tapInterval, eventName, ev;
-        if (isCancel) {
-            if (HAS_TOUCH && e.touches.length == 0) isCancel = false;
-            return false;
-        }
-        if (!HAS_TOUCH && e.button !== undefined && e.button !== MAIN_MOUSE_BUTTON_DOWN) {
-            return false;
-        }
-        touchendEvent = HAS_TOUCH ? e.changedTouches[0] : e;
-        absOffsetX = Math.abs(touchendEvent.pageX - touchstartX);
-        absOffsetY = Math.abs(touchendEvent.pageY - touchstartY);
-        tapInterval = e.timeStamp - lastTapTimestamp;
-        if (absOffsetX < MAX_TAP_MOVEMENT && absOffsetY < MAX_TAP_MOVEMENT) {
-            eventName = tapInterval > MIN_TAP_INTERVAL ? TAP_EV : DOUBLE_TAP_EV;
-            ev = document.createEvent('HTMLEvents');
-            ev.initEvent(eventName, true, true);
-            e.target.dispatchEvent(ev);
-            lastTapTimestamp = e.timeStamp;
-            isCancel = false;
-        }
-    }, false);
-})();
-
 window.onerror = function(sMessage,sUrl,sLine){
     alert(sMessages)
 };
@@ -145,7 +100,7 @@ function initFirstPageSize() {
     });
     $('#draw-grey').width(w).height(h);
 
-    $('#test_aaa').on('tap', function (e) {
+    $('#test_aaa').on('click', function (e) {
         var opt = $.extend(DEFAULT_OPTIONS, {
             height: $image[0].clientHeight,
             width: $image[0].clientWidth,
@@ -155,9 +110,9 @@ function initFirstPageSize() {
             }
         })
 
-        paths = findCrackEffectPaths(opt);
+        var paths = findCrackEffectPaths(opt);
 
-        clearDrawing($canvas);
+//        clearDrawing($canvas);
         renderCrackEffectAll($canvas, $image, paths, opt);
     });
 }
