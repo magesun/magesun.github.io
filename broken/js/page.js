@@ -147,7 +147,9 @@ function renderBroken(e) {
 
     firstPageClickTime++;
 
-    setTimeout(renderBroken(e), 2000);
+    setTimeout(function() {
+        renderBroken(e);
+    }, 3000);
 }
 
 function clearDrawing($canvas) {
