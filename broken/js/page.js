@@ -101,6 +101,7 @@ function initFirstPageSize() {
     $('#draw-grey').width(w).height(h);
 
     $('#test_aaa').on('click', function (e) {
+        alert('123123')
         var opt = $.extend(DEFAULT_OPTIONS, {
             height: $image[0].clientHeight,
             width: $image[0].clientWidth,
@@ -112,7 +113,7 @@ function initFirstPageSize() {
 
         var paths = findCrackEffectPaths(opt);
 
-//        clearDrawing($canvas);
+        clearDrawing($canvas);
         renderCrackEffectAll($canvas, $image, paths, opt);
     });
 }
