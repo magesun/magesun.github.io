@@ -137,6 +137,7 @@ function renderBroken(e) {
         setTimeout(function() {
 
             $('#draw-grey,canvas').remove();
+            $('#draw-image').attr('src', '../img/test/P4.png');
             canMove = true;
         }, 1500);
     }
@@ -149,7 +150,7 @@ function renderBroken(e) {
 
     setTimeout(function() {
         renderBroken(e);
-    }, 3000);
+    }, 2500);
 }
 
 function clearDrawing($canvas) {
