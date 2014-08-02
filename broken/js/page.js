@@ -31,8 +31,8 @@ document.body.addEventListener('touchend', function (e) {
 window.onorientationchange = orientationChange;
 
 function initPage() {
-    pageWidth = $(window).width();
-    pageHeight = $(".wrap").height();
+    pageWidth = window.innerWidth;
+    pageHeight = window.innerHeight;
     pages = $(".wrap section");
     $(".bg .bg_sec").css("height", pageHeight);
 
@@ -115,9 +115,7 @@ function initFirstPageSize() {
         var paths = findCrackEffectPaths(opt);
         clearDrawing($canvas);
 
-        setTimeout(function() {
-            renderCrackEffectAll($canvas, $image, paths, opt);
-        }, 200);
+        renderCrackEffectAll($canvas, $image, paths, opt);
     });
 }
 
@@ -189,6 +187,7 @@ function onEnd(e) {
             }
         }
     }
+    $(".sec").removeClass("drag");
 }
 //    // 视差
 //    var scene = document.getElementById('scene');

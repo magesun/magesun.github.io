@@ -306,7 +306,7 @@ function renderCrackEffectAll($canvas, $image, paths, options) {
    {
       line = paths[i];
 
-
+//
 //      renderCrackEffectRefract($canvas[0], $image[0], line.p1, line.p2, line.desc,
 //            {
 //               opacity: options.refract.opacity * 0.01,
@@ -315,22 +315,22 @@ function renderCrackEffectAll($canvas, $image, paths, options) {
 //            }
 //        );
 
-//      renderCrackEffectReflect($canvas[1], $image[0], line.p1, line.p2, line.desc,
-//            {
-//               color: options.mainColor,
-//               opacity: options.reflect.opacity * 0.01
-//            }
-//        );
-//
-//      renderCrackEffectFractures($canvas[2], $image[0], line.p1, line.p2, line.desc,
-//            {
-//               color: options.mainColor,
-//               opacity: options.fractures.opacity * 0.01,
-//               size: options.fractures.size / (line.level * options.fractures.decay / 100 + 1)
-//            }
-//        );
+      renderCrackEffectReflect($canvas[0], $image[0], line.p1, line.p2, line.desc,
+            {
+               color: options.mainColor,
+               opacity: options.reflect.opacity * 0.01
+            }
+        );
 
-      renderCrackEffectMainLine($canvas[3], $image[0], line.p1, line.p2, line.desc,
+      renderCrackEffectFractures($canvas[1], $image[0], line.p1, line.p2, line.desc,
+            {
+               color: options.mainColor,
+               opacity: options.fractures.opacity * 0.01,
+               size: options.fractures.size / (line.level * options.fractures.decay / 100 + 1)
+            }
+        );
+
+      renderCrackEffectMainLine($canvas[2], $image[0], line.p1, line.p2, line.desc,
             {
                color: options.mainColor,
                opacity: options.mainline.opacity * 0.01,
@@ -339,14 +339,14 @@ function renderCrackEffectAll($canvas, $image, paths, options) {
                highlight: options.mainline.highlight * 0.01
             }
         );
-//
-//      renderCrackEffectNoise($canvas[4], $image[0], line.p1, line.p2, line.desc,
-//            {
-//               color: options.mainColor,
-//               opacity: options.noise.opacity * 0.01,
-//               freq: options.noise.freq * 0.01 / (line.level * options.noise.decay * 0.01 + 1)
-//            }
-//        );
+
+      renderCrackEffectNoise($canvas[3], $image[0], line.p1, line.p2, line.desc,
+            {
+               color: options.mainColor,
+               opacity: options.noise.opacity * 0.01,
+               freq: options.noise.freq * 0.01 / (line.level * options.noise.decay * 0.01 + 1)
+            }
+        );
    }
 }
 
