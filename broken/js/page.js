@@ -109,6 +109,7 @@ function initFirstPageSize() {
 
     $('#test_aaa').off('click').on('click', function (e) {
         renderBroken(e);
+        $('#test_aaa').off('click');
     });
 }
 
@@ -134,7 +135,7 @@ function renderBroken(e) {
         opt.mainline.strength = 10;
 
         setTimeout(function() {
-            $('#test_aaa').off('click');
+
             $('#draw-grey,canvas').remove();
             canMove = true;
         }, 1500);
@@ -145,6 +146,8 @@ function renderBroken(e) {
     renderCrackEffectAll($canvas, $image, paths, opt);
 
     firstPageClickTime++;
+
+    setTimeout(renderBroken(e), 2000);
 }
 
 function clearDrawing($canvas) {
