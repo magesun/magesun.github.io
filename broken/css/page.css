@@ -94,35 +94,6 @@ section{display: block;}
 @-webkit-keyframes ico_reader_cir {0%,50% {opacity: 0;-webkit-transform: scale(0);}70% {opacity: 0.8;-webkit-transform: scale(1.5);}80% {opacity: 1;-webkit-transform: scale(0.8);}90% {-webkit-transform: scale(1.2);}}
 @keyframes ico_reader_cir {0%,50% {opacity: 0;transform: translate(-80px,0);}}
 
-.sec03 .p{z-index: 2;position: absolute;left: 50%;margin-left: -115px;top: 18%;line-height: 1.5;text-align: right;}
-.sec03 h2{font-size: 2.25rem;}
-.sec03 p{font-size: 0.75rem;padding-right: 1rem;}
-.sec03 p:nth-last-child(1){padding-right: 2rem;}
-.sec03 .data{z-index: 2;font-size: 0.75rem;position: absolute;left: 50%;margin-left: -120px;top: 84%;text-decoration: underline;color: #FBCEAD;}
-.ico_comic{z-index: 3;position: absolute;left: 50%;margin-left: -49px;top: 38%;display: block;}
-.ico_com{z-index: 1;position: absolute;left: 33px;top: 49px;display: block;width: 69px;height: 84px;background-position: -93px -2px;}
-.ico_comic_tri01{font-size: 176px;position: absolute;left: 0px;top: 0px;color: #FFCA13;-webkit-transform: rotate(-5deg);transform: rotate(-5deg);}
-.ico_comic_tri02{font-size: 136px;position: absolute;left: 15px;top: 20px;color: #FFF5D9;-webkit-transform: rotate(-5deg);transform: rotate(-5deg);}
-.ico_naruto{z-index: 2;position: absolute;left: 50%;margin-left: -13px;top: 35%;display: block;width: 169px;height: 205px;}
-.bg03 b{position: absolute;left: 50%;color: #EC8630;}
-.bg03 .b_a{font-size: 3rem;margin-left: -140px;top: 20%;}
-.bg03 .b_b{font-size: 3.5rem;margin-left: -140px;top: 70%;}
-.bg03 .b_c{font-size: 3rem;margin-left: 110px;top: 10%;}
-
-.sec03 .ico_com,.sec03 .ico_naruto,.sec03 .ico_comic_tri01,.sec03 .ico_comic_tri02{opacity: 0;}
-.sec03_show .ico_com{opacity:1;-webkit-animation: ico_com 1s linear;animation: ico_com 1s linear;}
-@-webkit-keyframes ico_com {0%,50%{-webkit-transform: translate(-60px,60px) scale(0);opacity: 0}70%{-webkit-transform: translate(0,0) scale(1.1);opacity: 1}80%{-webkit-transform: translate(0,0) scale(0.8);}100%{-webkit-transform: translate(0,0) scale(1);opacity: 1}}
-@keyframes ico_com {0%,50%{transform: translate(-60px,60px) scale(0);opacity: 0}70%{transform: translate(0,0) scale(1.1);opacity: 1}80%{transform: translate(0,0) scale(0.8);}100%{transform: translate(0,0) scale(1);opacity: 1}}
-
-.sec03_show .ico_comic_tri01{opacity:1;-webkit-animation: ico_comic_tri 0.5s ease-in;animation: ico_comic_tri 0.5s ease-in;}
-.sec03_show .ico_comic_tri02{opacity:1;-webkit-animation: ico_comic_tri 0.4s ease-in;animation: ico_comic_tri 0.4s ease-in;}
-@-webkit-keyframes ico_comic_tri {0%{-webkit-transform: translate(100px,-100px) rotate(-5deg);opacity: 0}60%{-webkit-transform: translate(40px,-40px) rotate(-5deg);opacity: 0.3}100%{-webkit-transform: translate(0,0) rotate(-5deg);opacity: 1}}
-@keyframes ico_comic_tri {0%{transform: translate(100px,-100px) rotate(-5deg);opacity: 0}60%{transform: translate(40px,-40px) rotate(-5deg);opacity: 0.3}100%{transform: translate(0,0) rotate(-5deg);opacity: 1}}
-
-.sec03_show .ico_naruto{opacity:1;-webkit-animation: naruto 1.5s ease-in-out;animation: naruto 1.5s ease-in-out;}
-@-webkit-keyframes naruto {0%,50% {opacity: 0;-webkit-transform: translate(-80px,0);}}
-@keyframes naruto {0%,50% {opacity: 0;transform: translate(-80px,0);}}
-
 .sec04 .p{z-index: 4;position: absolute;left: 50%;margin-left: -101px;top: 19%;line-height: 1.5;}
 .sec04 h2{font-size: 2.25rem;}
 .sec04 p{font-size: 0.75rem;padding-left: 1rem;}
