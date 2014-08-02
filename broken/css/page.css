@@ -7,7 +7,6 @@ ol,ul{list-style:none;}
 body{font-family: Helvetica; height:100%;}
 section{display: block;}
 
-@font-face {font-family: 'invitation';src:url('http://up.qq.com/2014/invitation/fonts/invitation.woff') format('woff'),url('http://up.qq.com/2014/invitation/fonts/invitation.ttf') format('truetype');font-weight: normal;font-style: normal;}
 [data-icon]:before {font-family: 'invitation';content: attr(data-icon);speak: none;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;}
 
 .wrap h1,.sec01 h2{display: none;}

@@ -137,7 +137,7 @@ function renderBroken(e) {
             $('#test_aaa').off('click');
             $('#draw-grey,canvas').remove();
             canMove = true;
-        }, 500);
+        }, 1500);
     }
 
     var paths = findCrackEffectPaths(opt);
