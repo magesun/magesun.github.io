@@ -53,7 +53,9 @@ function orientationChange() {
 }
 
 $(document).ready(function () {
-    initPage();
+    setTimeout(function() {
+        initPage();
+    }, 400)
 });
 
 function prevPage() {
