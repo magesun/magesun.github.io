@@ -139,7 +139,7 @@ function renderBroken(e) {
             $('#draw-grey,canvas').remove();
             $('#draw-image').attr('src', '../img/test/P4.png');
             canMove = true;
-        }, 1500);
+        }, 2000);
     }
 
     var paths = findCrackEffectPaths(opt);
