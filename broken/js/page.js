@@ -101,6 +101,7 @@ function initFirstPageSize() {
     $('#draw-grey').width(w).height(h);
 
     $('#test_aaa').on('click', function (e) {
+        alert('-' + $image[0].clientHeight + '-' +  $image[0].clientWidth+ '-' + e.clientX + '-' + e.clientY)
         var opt = $.extend(DEFAULT_OPTIONS, {
             height: $image[0].clientHeight,
             width: $image[0].clientWidth,

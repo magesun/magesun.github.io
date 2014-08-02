@@ -299,7 +299,6 @@ function renderCrackEffectNoise(cvs, img, p1, p2, line, options)
 
 
 function renderCrackEffectAll($canvas, $image, paths, options) {
-    alert($canvas + '-' + $image + '-' + options)
    var i, line,
        len = paths.length;
 
