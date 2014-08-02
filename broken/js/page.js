@@ -1,4 +1,4 @@
-window.onerror = function(sMessage,sUrl,sLine){
+window.onerror = function(sMessage, sUrl, sLine){
     alert(sMessages)
 };
 // 以下是拖动效果
@@ -9,22 +9,29 @@ var pages = null;
 var curPage = 0;
 var pageWidth = 0,
     pageHeight = 0;
-var secHeight = 0;
 var scrollPrevent = false, movePrevent = false, touchDown = false;
 var $canvas = $('canvas'),
     $image = $('#draw-image');
+var firstPageClickTime = 0;
+var canMove = false;
 
 document.body.addEventListener('touchstart', function (e) {
-    e = e.changedTouches[0];
-    onStart(e);
+    if(canMove) {
+        e = e.changedTouches[0];
+        onStart(e);
+    }
 });
 
 document.body.addEventListener('touchmove', function (e) {
-    onMove(e.changedTouches[0], e);
+    if(canMove) {
+        onMove(e.changedTouches[0], e);
+    }
 });
 
 document.body.addEventListener('touchend', function (e) {
-    onEnd(e.changedTouches[0]);
+    if(canMove) {
+        onEnd(e.changedTouches[0]);
+    }
 });
 
 // 翻转的绑定
@@ -40,8 +47,6 @@ function initPage() {
         "width": pageWidth + "px",
         "height": pageHeight + "px"
     });
-
-    secHeight = pageHeight * $(".wrap section").length;
 
     $(".sec").addClass("drag");
     initFirstPageSize();
@@ -102,21 +107,44 @@ function initFirstPageSize() {
     });
     $('#draw-grey').width(w).height(h);
 
-    $('#test_aaa').on('click', function (e) {
-        var opt = $.extend(DEFAULT_OPTIONS, {
-            height: $image[0].clientHeight,
-            width: $image[0].clientWidth,
-            center: {
-                x: e.clientX,
-                y: e.clientY
-            }
-        })
-
-        var paths = findCrackEffectPaths(opt);
-        clearDrawing($canvas);
-
-        renderCrackEffectAll($canvas, $image, paths, opt);
+    $('#test_aaa').off('click').on('click', function (e) {
+        renderBroken(e);
     });
+}
+
+function renderBroken(e) {
+    var opt = $.extend(DEFAULT_OPTIONS, {
+        height: $image[0].clientHeight,
+        width: $image[0].clientWidth,
+        center: {
+            x: e.clientX,
+            y: e.clientY
+        }
+    });
+    if(firstPageClickTime === 0) {
+        opt.radialLines = 5;
+        opt.mainline.strength = 1;
+        $('#draw-image').attr('src', '../img/test/P2.png');
+    } else if(firstPageClickTime === 1) {
+        opt.radialLines = 10;
+        opt.mainline.strength = 5;
+        $('#draw-image').attr('src', '../img/test/P3.png');
+    } else if(firstPageClickTime === 2) {
+        opt.radialLines = 18;
+        opt.mainline.strength = 10;
+
+        setTimeout(function() {
+            $('#test_aaa').off('click');
+            $('#draw-grey,canvas').remove();
+            canMove = true;
+        }, 500);
+    }
+
+    var paths = findCrackEffectPaths(opt);
+    clearDrawing($canvas);
+    renderCrackEffectAll($canvas, $image, paths, opt);
+
+    firstPageClickTime++;
 }
 
 function clearDrawing($canvas) {
@@ -194,30 +222,28 @@ function onEnd(e) {
 //    var parallax = new Parallax(scene);
 
 var DEFAULT_OPTIONS = {
-    circles: 60,
-    curves: 30,
+    circles: 10,
+    curves: 10,
     debug: false,
     density: 50,
-    diagonals: 30,
+    diagonals: 20,
     fractures: {
         decay: 100,
         opacity: 40,
-        size: 33
+        size: 20
     },
     mainColor: "rgb(255, 255, 255)",
     mainline: {
         decay: 90,
         highlight: 20,
         offset: 5,
-        opacity: 65,
-        strength: 2
+        opacity: 65
     },
     noise: {
         decay: 5,
         freq: 40,
         opacity: 100
     },
-    radialLines: 4,
     reflect: {
         opacity: 30
     },
