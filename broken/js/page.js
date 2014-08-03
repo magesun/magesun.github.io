@@ -11,10 +11,9 @@ var pageWidth = 0,
     pageHeight = 0;
 var scrollPrevent = false, movePrevent = false, touchDown = false;
 var $canvas = $('.broken-canvas'),
-    $image = $('#draw-image');
+    $drawcon = $('#draw_con');
 var firstPageClickTime = 0;
 var canMove = false;
-var clockInterval;
 
 document.body.addEventListener('touchstart', function (e) {
     if(canMove) {
@@ -125,21 +124,22 @@ function initFirstPageSize() {
 
 function renderBroken(e) {
     var opt = $.extend(DEFAULT_OPTIONS, {
-        height: $image[0].clientHeight,
-        width: $image[0].clientWidth,
+        height: $drawcon[0].clientHeight,
+        width: $drawcon[0].clientWidth,
         center: {
             x: e.clientX,
             y: e.clientY
         }
     });
+    console.log(opt)
     if(firstPageClickTime === 0) {
         opt.radialLines = 5;
         opt.mainline.strength = 1;
-        $('#draw-image').attr('src', '../img/test/P2.png');
+//        $('#draw-image').attr('src', '../img/test/P2.png');
     } else if(firstPageClickTime === 1) {
         opt.radialLines = 10;
         opt.mainline.strength = 5;
-        $('#draw-image').attr('src', '../img/test/P3.png');
+//        $('#draw-image').attr('src', '../img/test/P3.png');
     } else if(firstPageClickTime === 2) {
         opt.radialLines = 18;
         opt.mainline.strength = 10;
@@ -147,7 +147,7 @@ function renderBroken(e) {
         setTimeout(function() {
 
             $('#draw-grey,.broken-canvas').remove();
-            $('#draw-image').attr('src', '../img/test/P4.png');
+//            $('#draw-image').attr('src', '../img/test/P4.png');
             canMove = true;
         }, 100);
     } else {
@@ -156,7 +156,7 @@ function renderBroken(e) {
 
     var paths = findCrackEffectPaths(opt);
     clearDrawing($canvas);
-    renderCrackEffectAll($canvas, $image, paths, opt);
+    renderCrackEffectAll($canvas, [], paths, opt);
 
     firstPageClickTime++;
 

@@ -30,7 +30,7 @@
 
     <div class="sec">
         <div class="bg">
-            <div class="bg_sec bg01"></div>
+            <div class="bg_sec bg01" style="background-color: #000000"></div>
             <div class="bg_sec bg02">
             </div>
             <div class="bg_sec bg03">
@@ -47,8 +47,10 @@
             </div>
         </div>
         <section class="sec01 sec01_show" id="test_aaa">
-            <div class="drawing ui-corner-all">
-                <img id="draw-image" src="../img/test/P1.png" style="width: 100%"/>
+            <div class="drawing ui-corner-all" id="draw_con" style="width: 100%;height: 100%;">
+                <div style="position: absolute;right: 0;top:5px;"><img src="../img/test/mask.png" width="271"/></div>
+                <!--<img id="draw-image" src="../img/test/P1.png" style="width: 100%"/>-->
+                <div style="position: absolute;left: 50%;margin-left:-61px;bottom: 100px;"><img src="../img/test/p1_word.png" width="122"/></div>
                 <div id="draw-grey"></div>
                 <canvas class="broken-canvas" id="draw-reflect"></canvas>
                 <canvas class="broken-canvas" id="draw-fractures"></canvas>
