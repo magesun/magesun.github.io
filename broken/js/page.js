@@ -145,11 +145,18 @@ function renderBroken(e) {
         opt.mainline.strength = 10;
 
         setTimeout(function() {
-
             $('#draw-grey,.broken-canvas').remove();
+            $('#broke_1').show();
+            setTimeout(function() {
+                $('#broke_1').hide();
+                $('#broke_2').show();
+                setTimeout(function() {
+                    $('#broke_1,#broke_2').remove();
+                }, 150);
+            }, 150);
 //            $('#draw-image').attr('src', '../img/test/P4.png');
             canMove = true;
-        }, 100);
+        }, 150);
     } else {
         return;
     }
@@ -162,7 +169,7 @@ function renderBroken(e) {
 
     setTimeout(function() {
         renderBroken(e);
-    }, 50);
+    }, 100);
 }
 
 function clearDrawing($canvas) {
