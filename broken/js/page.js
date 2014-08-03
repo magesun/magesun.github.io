@@ -153,7 +153,7 @@ function renderBroken(e) {
                 setTimeout(function() {
                     $('#broke_1,#broke_2').remove();
                 }, 150);
-            }, 150);
+            }, 300);
 //            $('#draw-image').attr('src', '../img/test/P4.png');
             canMove = true;
         }, 150);
