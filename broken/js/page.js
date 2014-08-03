@@ -37,6 +37,10 @@ document.body.addEventListener('touchend', function (e) {
 // 翻转的绑定
 window.onorientationchange = orientationChange;
 
+// 视差
+var scene = document.getElementById('scene');
+var parallax = new Parallax(scene);
+
 function initPage() {
     pageWidth = window.innerWidth;
     pageHeight = window.innerHeight;
@@ -60,11 +64,7 @@ function orientationChange() {
 $(document).ready(function () {
     setTimeout(function() {
         initPage();
-
-        // 视差
-        var scene = document.getElementById('scene');
-        var parallax = new Parallax(scene);
-    }, 400)
+    }, 400);
 });
 
 function prevPage() {
