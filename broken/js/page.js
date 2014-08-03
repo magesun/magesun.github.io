@@ -61,6 +61,10 @@ function orientationChange() {
 $(document).ready(function () {
     setTimeout(function() {
         initPage();
+
+        // 视差
+        var scene = document.getElementById('scene');
+        var parallax = new Parallax(scene);
     }, 400)
 });
 
@@ -99,10 +103,8 @@ function animatePage(newPage) {
     $(pages[curPage + 1]).removeClass("sec0" + (curPage + 2) + "_show");
 
     if(curPage == 2) {
-        clock();
-        clockInterval = setInterval(clock, 1000)
+        setTimeout(fastRotate, 500);
     } else {
-        if(clockInterval) clearInterval(clockInterval);
     }
 }
 
@@ -234,81 +236,14 @@ function onEnd(e) {
     $(".sec").removeClass("drag");
 }
 
-
-//    // 视差
-//    var scene = document.getElementById('scene');
-//    var parallax = new Parallax(scene);
-function clock(){
-    ///得到时分秒
-    var now=new Date();
-    var sec=now.getSeconds(),mi=now.getMinutes(),hour=now.getHours();
-    hour=hour>=12?hour-12:hour;
-    var c=document.getElementById("clock_canvas").getContext("2d");
-    c.save();
-    c.clearRect(0,0,150,150);    ///初始化画布
-    c.translate(75,75);
-    c.scale(0.4,0.4);
-    c.rotate(-Math.PI/2);
-    c.strokeStyle="black";
-    c.fillStyle="black";
-    c.lineWidth=8;
-    c.lineCap="round";
-    c.save();
-    c.beginPath();
-    for(var i=0;i<12;i++){///小时刻度
-        c.rotate(Math.PI/6);
-        c.moveTo(100,0);
-        c.lineTo(120,0);
-    }
-    c.stroke();
-    c.restore();
-    c.save();
-    c.lineWidth=5;
-    c.beginPath();
-    for(var i=0;i<60;i++){///分钟刻度
-        if(i%5!=0){
-            c.moveTo(117,0);
-            c.lineTo(120,0);
-        }
-        c.rotate(Math.PI/30);
-    }
-    c.stroke();
-    c.restore();
-    c.save();
-    c.rotate((Math.PI/6)*hour+(Math.PI/360)*mi+(Math.PI/21600)*sec);///画上时针
-    c.lineWidth=14;
-    c.beginPath();
-    c.moveTo(-20,0);
-    c.lineTo(75,0);
-    c.stroke();
-    c.restore();
-    c.save();
-    c.rotate((Math.PI/30)*mi+(Math.PI/1800)*sec);///分针
-    c.strokeStyle="#29A8DE";
-    c.lineWith=10;
-    c.beginPath();
-    c.moveTo(-28,0);
-    c.lineTo(102,0);
-    c.stroke();
-    c.restore();
-    c.save();
-    c.rotate(sec*Math.PI/30);///秒针
-    c.strokeStyle="#D40000";
-    c.lineWidth=6;
-    c.beginPath();
-    c.moveTo(-30,0);
-    c.lineTo(83,0);
-    c.stroke();
-    c.restore();
-    c.save();
-    ///表框
-    c.lineWidth=14;
-    c.strokeStyle="#325FA2";
-    c.beginPath();
-    c.arc(0,0,142,0,Math.PI*2,true);
-    c.stroke();
-    c.restore();
-    c.restore();
+function fastRotate() {
+    var $sp = $('#sec_pointer'),
+        orv = parseInt($sp.data('rv'));
+    if(orv >= 270) return;
+    var rv = orv + 10;
+    $sp.data('rv', rv);
+    $sp.css('-webkit-transform', 'rotate(' + rv + 'deg)');
+    requestAnimationFrame(fastRotate);
 }
 
 var DEFAULT_OPTIONS = {

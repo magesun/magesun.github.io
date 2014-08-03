@@ -19,6 +19,9 @@
             background-color: #000000;
             opacity: 0.5;
         }
+        #sec_pointer {
+            -webkit-transform-origin: left;
+        }
     </style>
 </head>
 <body>
@@ -68,8 +71,8 @@
                 </span>
             <span class="start"><b aria-hidden="true" data-icon="1"></b></span>
         </section>
-        <section class="sec03 ">
-            <canvas id="clock_canvas" width="200" height="200" style="margin-top: 40px;margin-left: 40px;"></canvas>
+        <section class="sec03 " style="position: relative">
+            <div data-rv="0" style="height: 2px;width: 50px;background-color: red;position: absolute;left: 50%;top: 50%;" id="sec_pointer"></div>
         </section>
         <section class="sec04 ">
             <div class="p">
@@ -113,8 +116,7 @@
 <img src="../img/test/P3.png" style="width: 0;height: 0;margin: 0;padding: 0;display: none;"/>
 <img src="../img/test/P4.png" style="width: 0;height: 0;margin: 0;padding: 0;display: none;"/>
 </body>
-<!--<script src="./parallax.js"></script>-->
-<!--<script src="./zepto.min.js"></script>-->
+<script src="./parallax.js"></script>
 <script src="./jquery.min.js"></script>
 <script src="./jquery-color.js"></script>
 <script src="./glass-crack-effect.js"></script>
