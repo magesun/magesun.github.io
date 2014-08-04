@@ -135,11 +135,11 @@ function renderBroken(e) {
     if(firstPageClickTime === 0) {
         opt.radialLines = 5;
         opt.mainline.strength = 1;
-//        $('#draw-image').attr('src', '../img/test/P2.png');
+        $('#p1_w2').show().siblings().hide();
     } else if(firstPageClickTime === 1) {
         opt.radialLines = 10;
         opt.mainline.strength = 5;
-//        $('#draw-image').attr('src', '../img/test/P3.png');
+        $('#p1_w3').show().siblings().hide();
     } else if(firstPageClickTime === 2) {
         opt.radialLines = 18;
         opt.mainline.strength = 10;
@@ -150,11 +150,12 @@ function renderBroken(e) {
             setTimeout(function() {
                 $('#broke_1').hide();
                 $('#broke_2').show();
+                $('#p1_mask').hide();
+                $('#p1_maskb').show();
                 setTimeout(function() {
                     $('#broke_1,#broke_2').remove();
                 }, 150);
             }, 300);
-//            $('#draw-image').attr('src', '../img/test/P4.png');
             canMove = true;
         }, 150);
     } else {

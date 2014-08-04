@@ -48,10 +48,18 @@
         </div>
         <section class="sec01 sec01_show" id="test_aaa">
             <div class="drawing ui-corner-all" id="draw_con" style="width: 100%;height: 100%;">
-                <div style="position: absolute;right: 0;top:5px;"><img src="../img/test/mask.png" width="271"/></div>
+                <div style="position: absolute;right: 0;top:5px;" id="p1_mask"><img src="../img/test/mask.png" width="271"/></div>
+                <div style="position: absolute;right: 0;top:5px;display: none;" id="p1_maskb"><img src="../img/test/mask_b.png" width="271"/></div>
                 <div class="layer" data-depth="0.8">
-                    <!--<img id="draw-image" src="../img/test/P1.png" style="width: 100%"/>-->
-                    <div style="position: absolute;left: 50%;margin-left:-61px;bottom: 100px;"><img src="../img/test/p1_word.png" width="122"/></div>
+                    <div id="p1_w1" style="position: absolute;left: 50%;margin-left:-64px;bottom: 100px;">
+                        <img src="../img/test/p1_w1.png" width="129"/>
+                    </div>
+                    <div id="p1_w2" style="position: absolute;left: 50%;margin-left:-82px;bottom: 100px;display: none">
+                        <img src="../img/test/p1_w2.png" width="165"/>
+                    </div>
+                    <div id="p1_w3" style="position: absolute;left: 50%;margin-left:-123px;bottom: 100px;display: none">
+                        <img src="../img/test/p1_w3.png" width="247"/>
+                    </div>
                 </div>
                 <div id="draw-grey"></div>
                 <img id="broke_1" src="../img/test/broke1.png" style="width: 100%;height: 100%;display: none;"/>
