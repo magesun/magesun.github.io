@@ -19,9 +19,6 @@
             background-color: #000000;
             opacity: 0.5;
         }
-        #sec_pointer {
-            -webkit-transform-origin: left;
-        }
     </style>
 </head>
 <body>
@@ -30,9 +27,8 @@
 
     <div class="sec">
         <div class="bg">
-            <div class="bg_sec bg01" style="background-color: #000000"></div>
-            <div class="bg_sec bg02">
-            </div>
+            <div class="bg_sec bg01"></div>
+            <div class="bg_sec bg02"></div>
             <div class="bg_sec bg03">
             </div>
             <div class="bg_sec bg04">
@@ -70,20 +66,20 @@
                 <canvas class="broken-canvas" id="draw-noise"></canvas>
             </div>
         </section>
-        <section class="sec02 ">
-            <div class="p">
-                <h2>我是读者</h2>
-
-                <p>每天有1500万人在腾讯文学的平台上</p>
-
-                <p>等候“大神”的更新</p>
+        <section class="sec02">
+            <div style="width: 100%;height: 100%;position:relative;">
+                <div>
+                    <img class="p2-clock" src="../img/test/clock.png"/>
+                    <img class="p2-light" src="../img/test/p2_light.png"/>
+                    <div class="p2-clockd"><img width="55px;" src="../img/test/clock_d.png"/></div>
+                </div>
+                <div class="layer" data-depth="0.8" style="z-index: 9999;">
+                    <div class="p2-bgc">
+                        <img src="../img/test/p2_bg.png" width="100%"/>
+                    </div>
+                    <img class="p2-w2" src="../img/test/p2_w2.png"/>
+                </div>
             </div>
-            <div class="data">15,000,000</div>
-                <span class="ico_reader">
-                    <span class="ico_rea"></span>
-                    <span class="ico_reader_cir"></span>
-                </span>
-            <span class="start"><b aria-hidden="true" data-icon="1"></b></span>
         </section>
         <section class="sec03 " style="position: relative">
             <div data-rv="0" style="height: 2px;width: 50px;background-color: red;position: absolute;left: 50%;top: 50%;" id="sec_pointer"></div>

@@ -39,7 +39,7 @@ window.onorientationchange = orientationChange;
 
 // 视差
 var scene = document.getElementById('scene');
-var parallax = new Parallax(scene);
+new Parallax(scene);
 
 function initPage() {
     pageWidth = window.innerWidth;
@@ -242,16 +242,6 @@ function onEnd(e) {
         }
     }
     $(".sec").removeClass("drag");
-}
-
-function fastRotate() {
-    var $sp = $('#sec_pointer'),
-        orv = parseInt($sp.data('rv'));
-    if(orv >= 270) return;
-    var rv = orv + 10;
-    $sp.data('rv', rv);
-    $sp.css('-webkit-transform', 'rotate(' + rv + 'deg)');
-    requestAnimationFrame(fastRotate);
 }
 
 var DEFAULT_OPTIONS = {
