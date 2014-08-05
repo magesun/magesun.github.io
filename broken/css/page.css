@@ -47,7 +47,7 @@ section{display: block;}
     left: 50%;
     margin-left: -6px;
     -webkit-transform: rotate(0deg);
-    -webkit-transform-origin: 6px 10px;
+    -webkit-transform-origin: 5px 10px;
     -webkit-transition: -webkit-transform 1000ms linear 300ms;
 }
 .sec02_show .p2-clockd{
