@@ -21,10 +21,6 @@ section{display: block;}
 
 .sec01{overflow: hidden;z-index: 3;}
 
-.sec01_show .layer:nth-child(3){-webkit-animation: opa_scal 1.2s ease-in-out;animation: opa_scal 1.2s ease-in-out;}
-.sec01_show .layer:nth-child(4){-webkit-animation: opa_scal 1.5s ease-in-out;animation: opa_scal 1.5s ease-in-out;}
-@-webkit-keyframes opa_scal {0%,50% {-webkit-transform: scale(0);opacity: 0}}
-@keyframes opa_scal {0%,50% {transform: scale(0);opacity: 0}}
 .start{-webkit-animation: opa_btm 1.5s ease-in-out;animation: opa_btm 1.5s ease-in-out;}
 @-webkit-keyframes opa_btm {0%,25% {opacity: 0;-webkit-transform: translate(0,20px);}}
 @keyframes opa_btm {0%,25% {opacity: 0;transform: translate(0,20px);}}
