@@ -131,7 +131,6 @@ function renderBroken(e) {
             y: e.clientY
         }
     });
-    console.log(opt)
     if(firstPageClickTime === 0) {
         opt.radialLines = 5;
         opt.mainline.strength = 1;

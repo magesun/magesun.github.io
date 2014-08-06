@@ -33,11 +33,18 @@ section{display: block;}
 @keyframes start {0%,30% {opacity: 0;transform: rotate(180deg) translate(0,-10px);}60% {opacity: 1;transform: rotate(180deg) translate(0,0);}100% {opacity: 0;transform: rotate(180deg) translate(0,5px);}}
 
 .p2-clock{
-    width: 110px;
+    width: 140px;
     position:absolute;
-    top:150px;
+    top:87px;
     left: 50%;
-    margin-left: -55px;
+    margin-left: -70px;
+}
+.p2-ww1{
+    top: 290px;
+    width: 180px;
+    position:absolute;
+    left: 50%;
+    margin-left: -90px;
 }
 .p2-clockd{
     width: 55px;
@@ -48,7 +55,7 @@ section{display: block;}
     margin-left: -6px;
     -webkit-transform: rotate(0deg);
     -webkit-transform-origin: 4px 10px;
-    -webkit-transition: -webkit-transform 500ms linear 500ms;
+    -webkit-transition: -webkit-transform 500ms linear 800ms;
 }
 .sec02_show .p2-clockd{
     -webkit-transform: rotate(270deg);
@@ -78,6 +85,7 @@ section{display: block;}
     margin-left: -212px;
     opacity: 1;
 }
+
 .sec02_show .p2-light{
     -webkit-animation: p2light 2s linear 0 infinite;
 }
