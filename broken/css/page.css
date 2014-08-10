@@ -124,7 +124,6 @@ section{display: block;}
     position:absolute;
     font:48px/53px Tahoma, Geneva, sans-serif;
     width:53px;
-    top:-22px;
 }
 .p3n_top {
     background:#ddd;
@@ -138,9 +137,13 @@ section{display: block;}
     border-radius:0 0 10px 10px;
     -webkit-transform-origin:top;
     transform-origin:top;
-}
-.p3n_btm{
     top:45px;
+}
+.p3n_top span{
+    top: 18px;
+}
+.p3n_btm span{
+    top:-26px;
 }
 
 .p3-ww1{
