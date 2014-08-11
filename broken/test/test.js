@@ -6,10 +6,6 @@ var clkBtmCls = "btm";
 function transform(obj,tran) {
     try{
         obj.style.WebkitTransform = tran;
-        obj.style.MozTransform = tran;
-        obj.style.msTransform = tran;
-        obj.style.OTransform = tran;
-        obj.style.transform = tran;
     }catch (e){
     }
 }
@@ -75,10 +71,14 @@ var ClkUnit = function(id, val, minVal, maxVal){
                 transform(u.btmfnt,"rotateX(90deg)");
                 u.btmfnt.txt.innerHTML=u.text;
                 var timer2 = setInterval(function(){
-                    if(btmDeg<=0) { clearInterval(timer2);u.animateReset(); u.mtx=false; }
-                    transform(u.btmfnt,"rotateX("+btmDeg+"deg)"); btmDeg-=10;},30);
+                    if(btmDeg<=0) {
+                        clearInterval(timer2);u.animateReset(); u.mtx=false;
+                    }
+                    transform(u.btmfnt,"rotateX("+btmDeg+"deg)"); btmDeg-=10;
+                },30);
                 clearInterval(timer1);
-            }},30);
+            }
+        },30);
     }
 
     this.animateReset();

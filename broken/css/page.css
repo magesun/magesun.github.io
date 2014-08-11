@@ -109,7 +109,6 @@ section{display: block;}
     -webkit-box-flex: 1;
     width: 53px;
     height: 90px;
-    background-color: gray;
     position:relative;
     overflow:visible;
 }
@@ -126,14 +125,14 @@ section{display: block;}
     width:53px;
 }
 .p3n_top {
-    background:#ddd;
+    background: #1b1c1c;
     border-bottom:1px solid #999;
     border-radius:10px 10px 0 0; top:0;
     -webkit-transform-origin:bottom;
     transform-origin:bottom;
 }
 .p3n_btm {
-    background:#eee;
+    background:#2B2B2B;
     border-radius:0 0 10px 10px;
     -webkit-transform-origin:top;
     transform-origin:top;

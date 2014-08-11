@@ -246,10 +246,33 @@ function onEnd(e) {
 var p3_inited = false;
 function initP3() {
     if(p3_inited) return;
-    new ClkUnit("p3_n_1",0, 0, 1);
-    new ClkUnit("p3_n_2",0, 0, 9);
-    new ClkUnit("p3_n_3",0, 0, 9);
-    new ClkUnit("p3_n_4",5, 5, 9);
+    var v4 = new ClkUnit("p3_n_1",0);
+    var v3 = new ClkUnit("p3_n_2",0);
+    var v2 = new ClkUnit("p3_n_3",0);
+    var v1 = new ClkUnit("p3_n_4",5);
+    new ClkUnit("p3_n_w", "万");
+
+    var v1_it = setInterval(function(){
+        var v1_ret = v1.turnDown();
+        if(v1_ret >= 10) {
+            clearInterval(v1_it);
+            var v2_it = setInterval(function(){
+                var v2_ret = v2.turnDown();
+                if(v2_ret >= 10) {
+                    clearInterval(v2_it);
+                    var v3_it = setInterval(function(){
+                        var v3_ret = v3.turnDown();
+                        if(v3_ret >= 10) {
+                            clearInterval(v3_it);
+                            setTimeout(function() {
+                                v4.turnDown();
+                            }, 200);
+                        }
+                    }, 100);
+                }
+            }, 100);
+        }
+    }, 100);
 }
 
 
@@ -261,20 +284,23 @@ function transform(obj, tran) {
     obj.style.transform = tran;
 }
 
-var ClkUnit = function(id, val, minVal, maxVal){
+var ClkUnit = function(id, val){
     this.update = function() {
         this.updateTxt();
-        if(this.val>this.maxVal) { this.setVal(this.minVal); this.period(); }
-        if(this.val<this.minVal) { this.setVal(this.maxVal); this.period(); }
     }
-    this.incVal = function() { this.val++; this.update(); }
-    this.updateTxt = function() { this.text = this.val; }
-    this.setVal = function(v) { this.val = v; this.updateTxt(); }
+    this.incVal = function() {
+        this.val++;
+        this.update();
+    }
+    this.updateTxt = function() {
+        this.text = this.val >= 10 ? 0 : this.val;
+    }
+    this.setVal = function(v) {
+        this.val = v; this.updateTxt();
+    }
 
     this.pane = document.getElementById(id);
     this.setVal(val);
-    this.minVal = minVal;
-    this.maxVal = maxVal;
     this.topbak = document.createElement("div");this.topbak.txt = document.createElement("span");this.topbak.className = clkTopCls;
     this.topfnt = document.createElement("div");this.topfnt.txt = document.createElement("span");this.topfnt.className = clkTopCls;
     this.btmbak = document.createElement("div");this.btmbak.txt = document.createElement("span");this.btmbak.className = clkBtmCls;
@@ -302,32 +328,28 @@ var ClkUnit = function(id, val, minVal, maxVal){
 
     this.turnDown = function(){
         var u = this;
-        if(this.mtx) return; //this.mtx = true;
+        if(this.mtx) return;
         this.incVal();
         var topDeg = 0;var btmDeg = 90;
 
-        this.topbak.txt.innerHTML=this.text;
-
+        this.topbak.txt.innerHTML = this.text;
         transform(u.topfnt, "rotateX(0deg)");
+        transform(u.topfnt,"rotateX("+topDeg+"deg)");
+        transform(u.topfnt,"rotateX(0deg)");
+        u.topfnt.txt.innerHTML=u.text;
+        transform(u.btmfnt,"rotateX(90deg)");
+        u.btmfnt.txt.innerHTML=u.text;
 
-        var timer1 = setInterval(function(){
-            transform(u.topfnt,"rotateX("+topDeg+"deg)"); topDeg-=10;
-            if(topDeg <=- 90){
-                transform(u.topfnt,"rotateX(0deg)");
-                u.topfnt.txt.innerHTML = u.text;
-                transform(u.btmfnt,"rotateX(90deg)");
-                u.btmfnt.txt.innerHTML = u.text;
-                var timer2 = setInterval(function(){
-                    if(btmDeg<=0) {
-                        clearInterval(timer2);
-                        u.animateReset();
-                        u.mtx=false;
-                    }
-                    transform(u.btmfnt,"rotateX("+btmDeg+"deg)"); btmDeg-=10;
-                },30);
-                clearInterval(timer1);
-            }
+        setTimeout(function(){
+            transform(u.btmfnt,"rotateX("+btmDeg+"deg)");
+
+            setTimeout(function() {
+                u.animateReset();
+                u.mtx=false;
+            }, 30)
         },30);
+
+        return this.val;
     }
 
     this.animateReset();
