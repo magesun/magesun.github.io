@@ -268,11 +268,11 @@ function initP3() {
                                 v4.turnDown();
                             }, 200);
                         }
-                    }, 100);
+                    }, 200);
                 }
-            }, 100);
+            }, 200);
         }
-    }, 100);
+    }, 200);
 }
 
 
@@ -326,27 +326,56 @@ var ClkUnit = function(id, val){
 
     this.period = null;
 
+//    this.turnDown = function(){
+//        var u = this;
+//        if(this.mtx) return;
+//        this.incVal();
+//        var topDeg = 0;var btmDeg = 90;
+//
+//        this.topbak.txt.innerHTML = this.text;
+//        transform(u.topfnt, "rotateX(0deg)");
+//        transform(u.topfnt,"rotateX("+topDeg+"deg)");
+//        transform(u.topfnt,"rotateX(0deg)");
+//        u.topfnt.txt.innerHTML=u.text;
+//        transform(u.btmfnt,"rotateX(90deg)");
+//        u.btmfnt.txt.innerHTML=u.text;
+//
+//        setTimeout(function(){
+//            transform(u.btmfnt,"rotateX("+btmDeg+"deg)");
+//
+//            setTimeout(function() {
+//                u.animateReset();
+//                u.mtx=false;
+//            }, 30)
+//        },30);
+//
+//        return this.val;
+//    }
     this.turnDown = function(){
         var u = this;
-        if(this.mtx) return;
+        if(this.mtx) return; //this.mtx = true;
         this.incVal();
         var topDeg = 0;var btmDeg = 90;
 
-        this.topbak.txt.innerHTML = this.text;
-        transform(u.topfnt, "rotateX(0deg)");
-        transform(u.topfnt,"rotateX("+topDeg+"deg)");
+        this.topbak.txt.innerHTML=this.text;
+
         transform(u.topfnt,"rotateX(0deg)");
-        u.topfnt.txt.innerHTML=u.text;
-        transform(u.btmfnt,"rotateX(90deg)");
-        u.btmfnt.txt.innerHTML=u.text;
 
-        setTimeout(function(){
-            transform(u.btmfnt,"rotateX("+btmDeg+"deg)");
-
-            setTimeout(function() {
-                u.animateReset();
-                u.mtx=false;
-            }, 30)
+        var timer1 = setInterval(function(){
+            transform(u.topfnt,"rotateX("+topDeg+"deg)"); topDeg-=30;
+            if(topDeg<=-90){
+                transform(u.topfnt,"rotateX(0deg)");
+                u.topfnt.txt.innerHTML=u.text;
+                transform(u.btmfnt,"rotateX(90deg)");
+                u.btmfnt.txt.innerHTML=u.text;
+                var timer2 = setInterval(function(){
+                    if(btmDeg<=0) {
+                        clearInterval(timer2);u.animateReset(); u.mtx=false;
+                    }
+                    transform(u.btmfnt,"rotateX("+btmDeg+"deg)"); btmDeg-=30;
+                },30);
+                clearInterval(timer1);
+            }
         },30);
 
         return this.val;
