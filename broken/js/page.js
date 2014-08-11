@@ -266,13 +266,13 @@ function initP3() {
                             clearInterval(v3_it);
                             setTimeout(function() {
                                 v4.turnDown();
-                            }, 200);
+                            }, 300);
                         }
-                    }, 200);
+                    }, 300);
                 }
-            }, 200);
+            }, 300);
         }
-    }, 200);
+    }, 300);
 }
 
 
@@ -362,7 +362,7 @@ var ClkUnit = function(id, val){
         transform(u.topfnt,"rotateX(0deg)");
 
         var timer1 = setInterval(function(){
-            transform(u.topfnt,"rotateX("+topDeg+"deg)"); topDeg-=30;
+            transform(u.topfnt,"rotateX("+topDeg+"deg)"); topDeg-=10;
             if(topDeg<=-90){
                 transform(u.topfnt,"rotateX(0deg)");
                 u.topfnt.txt.innerHTML=u.text;
@@ -372,7 +372,7 @@ var ClkUnit = function(id, val){
                     if(btmDeg<=0) {
                         clearInterval(timer2);u.animateReset(); u.mtx=false;
                     }
-                    transform(u.btmfnt,"rotateX("+btmDeg+"deg)"); btmDeg-=30;
+                    transform(u.btmfnt,"rotateX("+btmDeg+"deg)"); btmDeg-=10;
                 },30);
                 clearInterval(timer1);
             }
