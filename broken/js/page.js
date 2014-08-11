@@ -246,6 +246,7 @@ function onEnd(e) {
 var p3_inited = false;
 function initP3() {
     if(p3_inited) return;
+    p3_inited = true;
     var v4 = new ClkUnit("p3_n_1",0);
     var v3 = new ClkUnit("p3_n_2",0);
     var v2 = new ClkUnit("p3_n_3",0);

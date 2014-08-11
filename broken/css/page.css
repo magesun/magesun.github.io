@@ -126,8 +126,8 @@ section{display: block;}
 }
 .p3n_top {
     background: #1b1c1c;
-    border-bottom:1px solid #999;
-    border-radius:10px 10px 0 0; top:0;
+    border-radius:10px 10px 0 0;
+    top:0;
     -webkit-transform-origin:bottom;
     transform-origin:bottom;
 }
