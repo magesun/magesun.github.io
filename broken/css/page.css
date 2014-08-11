@@ -85,6 +85,13 @@ section{display: block;}
 .sec02_show .p2-light{
     -webkit-animation: p2light 2s linear 0 infinite;
 }
+.sec02_con{
+    width: 100%;height: 100%;position:relative;
+    visibility: hidden;
+}
+.sec02_show .sec02_con{
+    visibility: visible;
+}
 @-webkit-keyframes p2light {
     0% {opacity: 1;}
     50% {opacity: 0;}
@@ -180,13 +187,6 @@ section{display: block;}
 .sec06_show .p p:nth-child(4){-webkit-transition: all 1.2s ease-in-out;transition: all 1.2s ease-in-out;}
 .sec06_show .p p:nth-child(5){-webkit-transition: all 1.4s ease-in-out;transition: all 1.4s ease-in-out;}
 .sec02_show .p h2,.sec02_show .p p,.sec02_show .data,.sec03_show .p h2,.sec03_show .p p,.sec03_show .data,.sec04_show .p h2,.sec04_show .p p,.sec04_show .data,.sec05_show .p h2,.sec05_show .p p,.sec05_show .data,.sec06_show .p p{-webkit-transform: translate(0,0);transform: translate(0,0);opacity: 1;}
-/****/
-.sec02 .ico_rea,.sec02 .ico_reader_cir{opacity: 0;}
-.sec02_show .ico_rea{opacity:1;-webkit-animation: ico_reader_cir 1.3s linear;animation: ico_reader_cir 1.3s linear;}
-
-.sec02_show .ico_reader_cir{opacity:1;-webkit-animation: ico_reader_cir 1s linear;animation: ico_reader_cir 1s linear;}
-
-@keyframes ico_reader_cir {0%,50% {opacity: 0;transform: translate(-80px,0);}}
 
 .sec04 .p{z-index: 4;position: absolute;left: 50%;margin-left: -101px;top: 19%;line-height: 1.5;}
 .sec04 h2{font-size: 2.25rem;}
