@@ -35,8 +35,8 @@ document.body.addEventListener('touchend', function (e) {
 window.onorientationchange = orientationChange;
 
 // 视差
-var scene = document.getElementById('scene');
-new Parallax(scene);
+//var scene = document.getElementById('scene');
+//new Parallax(scene);
 
 function initPage() {
     pageWidth = window.innerWidth;
@@ -50,7 +50,7 @@ function initPage() {
     });
 
     $(".sec").addClass("drag");
-    initFirstPageSize();
+    startP1();
     animatePage(curPage);
 }
 
@@ -106,19 +106,32 @@ function animatePage(newPage) {
     }
 }
 
-function initFirstPageSize() {
+function startP1() {
     var h = window.innerHeight,
         w = window.innerWidth;
     $canvas.each(function () {
         this.height = h;
         this.width = w;
     });
-    $('#draw-grey').width(w).height(h);
 
-    $('#test_aaa').off('click').on('click', function (e) {
-        renderBroken(e);
-        $('#test_aaa').off('click');
-    });
+    $('#p1_w1').addClass('up');
+
+    setTimeout(function() {
+        $('#p1_w1').addClass('hide');
+        $('#p1_w2').addClass('up');
+
+        setTimeout(function() {
+            $('#p1_w2').addClass('hide');
+            $('#p1_w3').addClass('up');
+
+            $('#draw-grey').show();
+
+            $('#test_aaa').off('click').on('click', function (e) {
+                renderBroken(e);
+                $('#test_aaa').off('click');
+            });
+        }, 2000);
+    }, 2000);
 }
 
 function renderBroken(e) {
@@ -133,11 +146,9 @@ function renderBroken(e) {
     if(firstPageClickTime === 0) {
         opt.radialLines = 5;
         opt.mainline.strength = 1;
-        $('#p1_w2').show().siblings().hide();
     } else if(firstPageClickTime === 1) {
         opt.radialLines = 10;
         opt.mainline.strength = 5;
-        $('#p1_w3').show().siblings().hide();
     } else if(firstPageClickTime === 2) {
         opt.radialLines = 18;
         opt.mainline.strength = 10;
@@ -152,9 +163,13 @@ function renderBroken(e) {
                 $('#p1_maskb').show();
                 setTimeout(function() {
                     $('#broke_1,#broke_2').remove();
+
+                    setTimeout(function() {
+                        canMove = true;
+                        animatePage(1);
+                    }, 500)
                 }, 150);
             }, 300);
-            canMove = true;
         }, 150);
     } else {
         return;
