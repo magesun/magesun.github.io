@@ -35,8 +35,8 @@ document.body.addEventListener('touchend', function (e) {
 window.onorientationchange = orientationChange;
 
 // 视差
-//var scene = document.getElementById('scene');
-//new Parallax(scene);
+var scene = document.getElementById('scene');
+new Parallax(scene);
 
 function initPage() {
     pageWidth = window.innerWidth;
