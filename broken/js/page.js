@@ -1,6 +1,3 @@
-window.onerror = function(sMessage, sUrl, sLine){
-    alert(sMessage)
-};
 // 以下是拖动效果
 var startX = 0,
     startY = 0,
@@ -37,9 +34,9 @@ document.body.addEventListener('touchend', function (e) {
 // 翻转的绑定
 window.onorientationchange = orientationChange;
 
-//// 视差
-//var scene = document.getElementById('scene');
-//new Parallax(scene);
+// 视差
+var scene = document.getElementById('scene');
+new Parallax(scene);
 
 function initPage() {
     pageWidth = window.innerWidth;
@@ -58,7 +55,9 @@ function initPage() {
 }
 
 function orientationChange() {
-    initPage();
+    setTimeout(function() {
+        initPage();
+    }, 400);
 }
 
 $(document).ready(function () {
@@ -205,7 +204,7 @@ function onStart(e) {
     margin = parseInt(margin[5]);
 }
 
-function onMove(e, oe) {
+function onMove(e) {
     if (movePrevent == true || touchDown != true) {
         event.preventDefault();
         return false;
@@ -253,27 +252,35 @@ function initP3() {
     var v1 = new ClkUnit("p3_n_4",5);
     new ClkUnit("p3_n_w", "万");
 
-    var v1_it = setInterval(function(){
-        var v1_ret = v1.turnDown();
-        if(v1_ret >= 10) {
-            clearInterval(v1_it);
-            var v2_it = setInterval(function(){
-                var v2_ret = v2.turnDown();
-                if(v2_ret >= 10) {
-                    clearInterval(v2_it);
-                    var v3_it = setInterval(function(){
-                        var v3_ret = v3.turnDown();
-                        if(v3_ret >= 10) {
-                            clearInterval(v3_it);
-                            setTimeout(function() {
-                                v4.turnDown();
-                            }, 300);
-                        }
-                    }, 300);
-                }
-            }, 300);
-        }
-    }, 300);
+    setTimeout(function() {
+        var v1_it = setInterval(function () {
+            var v1_ret = v1.turnDown();
+            if (v1_ret >= 10) {
+                clearInterval(v1_it);
+            }
+        }, 300);
+    }, 500);
+
+    setTimeout(function() {
+        var v2_it = setInterval(function(){
+            var v2_ret = v2.turnDown();
+            if(v2_ret >= 10) {
+                clearInterval(v2_it);
+            }
+        }, 300);
+    }, 1000);
+
+    setTimeout(function() {
+        var v3_it = setInterval(function () {
+            var v3_ret = v3.turnDown();
+            if (v3_ret >= 10) {
+                clearInterval(v3_it);
+                setTimeout(function () {
+                    v4.turnDown();
+                }, 300);
+            }
+        }, 300);
+    }, 1500);
 }
 
 
@@ -327,31 +334,6 @@ var ClkUnit = function(id, val){
 
     this.period = null;
 
-//    this.turnDown = function(){
-//        var u = this;
-//        if(this.mtx) return;
-//        this.incVal();
-//        var topDeg = 0;var btmDeg = 90;
-//
-//        this.topbak.txt.innerHTML = this.text;
-//        transform(u.topfnt, "rotateX(0deg)");
-//        transform(u.topfnt,"rotateX("+topDeg+"deg)");
-//        transform(u.topfnt,"rotateX(0deg)");
-//        u.topfnt.txt.innerHTML=u.text;
-//        transform(u.btmfnt,"rotateX(90deg)");
-//        u.btmfnt.txt.innerHTML=u.text;
-//
-//        setTimeout(function(){
-//            transform(u.btmfnt,"rotateX("+btmDeg+"deg)");
-//
-//            setTimeout(function() {
-//                u.animateReset();
-//                u.mtx=false;
-//            }, 30)
-//        },30);
-//
-//        return this.val;
-//    }
     this.turnDown = function(){
         var u = this;
         if(this.mtx) return; //this.mtx = true;
