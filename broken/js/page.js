@@ -52,6 +52,9 @@ function initPage() {
     $(".sec").addClass("drag");
     startP1();
     animatePage(curPage);
+
+    var audioDom = document.getElementById('audioSource');
+    audioDom.play();
 }
 
 function orientationChange() {
@@ -165,8 +168,9 @@ function renderBroken(e) {
                     $('#broke_1,#broke_2').remove();
 
                     setTimeout(function() {
-                        canMove = true;
+                        $('#first_next').show();
                         animatePage(1);
+                        canMove = true;
                     }, 500)
                 }, 150);
             }, 300);
@@ -312,7 +316,11 @@ var ClkUnit = function(id, val){
         this.updateTxt();
     }
     this.incVal = function() {
-        this.val++;
+        if(this.val === 0) {
+            this.val++;
+        } else {
+            this.val+=2;
+        }
         this.update();
     }
     this.updateTxt = function() {
