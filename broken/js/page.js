@@ -52,9 +52,6 @@ function initPage() {
     $(".sec").addClass("drag");
     startP1();
     animatePage(curPage);
-
-    var audioDom = document.getElementById('audioSource');
-    audioDom.play();
 }
 
 function orientationChange() {

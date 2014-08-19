@@ -140,7 +140,7 @@
     </div>
 </div>
 
-<audio id="audioSource" loop="loop" onended="this.play();">
+<audio id="audioSource" loop="loop" autoplay="autoplay" onended="this.play();">
 </audio>
 <!--<img src="../img/test/P2.png" style="width: 0;height: 0;margin: 0;padding: 0;display: none;"/>-->
 <!--<img src="../img/test/P3.png" style="width: 0;height: 0;margin: 0;padding: 0;display: none;"/>-->
@@ -151,11 +151,16 @@
 <script src="./jquery-color.js"></script>
 <script src="./glass-crack-effect.js"></script>
 <script type="text/javascript">
-    if(/iphone/i.test(window.navigator.userAgent)){
-        $('#audioSource').append('<source src="../img/AAmusic0730.mp3" type="audio/mp3">');
-    }else{
-        $('#audioSource').append('<source src="../img/AAmusic0730.ogg" type="audio/ogg">');
-    }
+    $(document).ready(function() {
+        if(/iphone/i.test(window.navigator.userAgent)){
+            $('#audioSource').append('<source src="../img/AAmusic0730.mp3" type="audio/mp3">');
+        }else{
+            $('#audioSource').append('<source src="../img/AAmusic0730.ogg" type="audio/ogg">');
+        }
+        $('body').on('click', function() {
+            $('#audioSource')[0].play();
+        });
+    });
 </script>
 
 <script src="../js/page.js"></script>
