@@ -126,7 +126,7 @@
                 <div>
                     <img class="p5-p1" src="../img/test/p5_p1.png"/>
                     <img class="p5-ww1" src="../img/test/p5_w1.png"/>
-                    <a class="p5-link" href="http://3g.qq.com" target="_blank">
+                    <a class="p5-link" id="down_link" target="_blank">
                         <img class="p5-w2" src="../img/test/p5_w2.png"/>
                     </a>
                 </div>
@@ -159,6 +159,9 @@
         }
         $('body').on('click', function() {
             $('#audioSource')[0].play();
+        });
+        $('#down_link').on('click', function() {
+            location.href = 'http://www.chinaamc.com/yingxiao/wsjy/sms/sms_h.html';
         });
     });
 </script>
