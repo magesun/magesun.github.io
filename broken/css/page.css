@@ -357,3 +357,13 @@ section{display: block;}
 @media screen and (max-height: 415px) {
 
 }
+#music_c{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background-size: 26px 25px;
+    width: 26px;
+    height: 25px;
+    z-index: 9999;
+    background-repeat: no-repeat;
+}

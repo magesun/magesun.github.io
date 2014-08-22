@@ -138,8 +138,9 @@
     </div>
 </div>
 
-<audio id="audioSource" loop="loop" autoplay="autoplay" onended="this.play();">
+<audio id="audioSource" loop="loop">
 </audio>
+<div id="music_c" data-s="0"></div>
 <!--<img src="../img/test/P2.png" style="width: 0;height: 0;margin: 0;padding: 0;display: none;"/>-->
 <!--<img src="../img/test/P3.png" style="width: 0;height: 0;margin: 0;padding: 0;display: none;"/>-->
 <!--<img src="../img/test/P4.png" style="width: 0;height: 0;margin: 0;padding: 0;display: none;"/>-->
@@ -155,8 +156,18 @@
         }else{
             $('#audioSource').append('<source src="../img/AAmusic0730.ogg" type="audio/ogg">');
         }
-        $('body').on('click', function() {
-            $('#audioSource')[0].play();
+        $('#music_c').css('background-image', 'url(../img/test/music_off.png)');
+        $('#music_c').on('click', function() {
+            if($(this).data('s') == '0') {
+                $('#audioSource')[0].play();
+                $('#music_c').css('background-image', 'url(../img/test/music_on.png)');
+                $(this).data('s', '1')
+            } else {
+                $('#audioSource')[0].pause();
+                $('#music_c').css('background-image', 'url(../img/test/music_off.png)');
+                $(this).data('s', '0')
+            }
+
         });
         $('#down_link').on('click', function() {
             location.href = 'http://www.chinaamc.com/yingxiao/wsjy/sms/h.html';
