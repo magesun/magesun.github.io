@@ -134,7 +134,7 @@
 </div>
 
 <div class="p-next" id="c_next"><img src="../img/test/next.png" width="39"/></div>
-<audio id="audioSource" preload="auto" loop="loop">
+<audio id="audioSource" autoplay="autoplay" preload="auto" loop="loop">
 </audio>
 <div id="music_c" data-s="0"></div>
 <!--<img src="../img/test/P2.png" style="width: 0;height: 0;margin: 0;padding: 0;display: none;"/>-->
@@ -163,8 +163,8 @@
                 $('#music_c').css('background-image', 'url(../img/test/music_off.png)');
                 $(this).data('s', '0')
             }
-
         });
+        $('#audioSource')[0].play();
         $('#down_link').on('click', function() {
             location.href = 'http://www.chinaamc.com/yingxiao/wsjy/sms/h.html';
         });
