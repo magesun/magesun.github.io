@@ -110,9 +110,9 @@ function animatePage(newPage) {
     }
 
     if(curPage == 1 || curPage == 2 || curPage == 3){
-        $('#c_next').addClass('show');
+        $('#c_next').show();
     } else {
-        $('#c_next').removeClass('show');
+        $('#c_next').hide();
     }
 }
 
@@ -175,7 +175,7 @@ function renderBroken(e) {
                     $('#broke_1,#broke_2').remove();
 
                     setTimeout(function() {
-                        $('#c_next').addClass('show');
+                        $('#c_next').show();
                         animatePage(1);
                         canMove = true;
                     }, 500)

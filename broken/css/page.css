@@ -39,11 +39,7 @@ section{display: block;}
     height: 39px;
     margin-left: -20px;
     -webkit-animation: nextani 2s linear 0 infinite;
-    -webkit-transition: opacity 500ms linear 1500ms;
-    opacity: 0;
-}
-.p-next.show{
-    opacity: 1;
+    display: none;
 }
 @-webkit-keyframes nextani {
     0% {-webkit-transform: translate(0,0px);}
