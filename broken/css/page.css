@@ -42,13 +42,7 @@ section{display: block;}
     -webkit-transition: opacity 500ms linear 1500ms;
     opacity: 0;
 }
-.sec02_show .p-next{
-    opacity: 1;
-}
-.sec03_show .p-next{
-    opacity: 1;
-}
-.sec04_show .p-next{
+.p-next.show{
     opacity: 1;
 }
 @-webkit-keyframes nextani {

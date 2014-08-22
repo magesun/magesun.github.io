@@ -63,6 +63,10 @@ function orientationChange() {
 $(document).ready(function () {
     setTimeout(function() {
         initPage();
+
+        $('#c_next').on('click', function() {
+            nextPage();
+        });
     }, 400);
 });
 
@@ -103,6 +107,12 @@ function animatePage(newPage) {
     if(curPage == 2) {
         initP3();
     } else {
+    }
+
+    if(curPage == 1 || curPage == 2 || curPage == 3){
+        $('#c_next').addClass('show');
+    } else {
+        $('#c_next').removeClass('show');
     }
 }
 
@@ -165,7 +175,7 @@ function renderBroken(e) {
                     $('#broke_1,#broke_2').remove();
 
                     setTimeout(function() {
-                        $('#first_next').show();
+                        $('#c_next').addClass('show');
                         animatePage(1);
                         canMove = true;
                     }, 500)
