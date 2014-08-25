@@ -294,7 +294,7 @@ function initP3() {
                 clearInterval(v2_it);
             }
         }, 300);
-    }, 1000);
+    }, 900);
 
     setTimeout(function() {
         var v3_it = setInterval(function () {
@@ -306,7 +306,7 @@ function initP3() {
                 }, 300);
             }
         }, 300);
-    }, 1500);
+    }, 1200);
 }
 
 
@@ -326,7 +326,7 @@ var ClkUnit = function(id, val){
         if(this.val === 0) {
             this.val++;
         } else {
-            this.val+=2;
+            this.val+=3;
         }
         this.update();
     }
