@@ -279,34 +279,11 @@ function initP3() {
     new ClkUnit("p3_n_w", "万");
 
     setTimeout(function() {
-        var v1_it = setInterval(function () {
-            var v1_ret = v1.turnDown();
-            if (v1_ret >= 10) {
-                clearInterval(v1_it);
-            }
-        }, 300);
-    }, 500);
-
-    setTimeout(function() {
-        var v2_it = setInterval(function(){
-            var v2_ret = v2.turnDown();
-            if(v2_ret >= 10) {
-                clearInterval(v2_it);
-            }
-        }, 300);
-    }, 900);
-
-    setTimeout(function() {
-        var v3_it = setInterval(function () {
-            var v3_ret = v3.turnDown();
-            if (v3_ret >= 10) {
-                clearInterval(v3_it);
-                setTimeout(function () {
-                    v4.turnDown();
-                }, 300);
-            }
-        }, 300);
-    }, 1300);
+        v1.turnDown();
+        v2.turnDown();
+        v3.turnDown();
+        v4.turnDown();
+    }, 600);
 }
 
 
@@ -323,10 +300,10 @@ var ClkUnit = function(id, val){
         this.updateTxt();
     }
     this.incVal = function() {
-        if(this.val === 0) {
+        if(id === 'p3_n_4') {
             this.val++;
         } else {
-            this.val+=3;
+            this.val+=10;
         }
         this.update();
     }
