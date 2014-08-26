@@ -300,7 +300,7 @@ var ClkUnit = function(id, val){
         this.updateTxt();
     }
     this.incVal = function() {
-        if(id === 'p3_n_4') {
+        if(id === 'p3_n_1') {
             this.val++;
         } else {
             this.val+=10;
