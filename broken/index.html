@@ -1,10 +1,168 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="Description" content="活期通"/>
+    <meta name="Keywords" content="活期通"/>
+    <meta name="author" content="rs">
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>活期通</title>
+    <link href="../css/page.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class="wrap" id="scene">
+    <div class="sec">
+        <div class="bg">
+            <div class="bg_sec bg01"></div>
+            <div class="bg_sec bg02"></div>
+            <div class="bg_sec bg03">
+            </div>
+            <div class="bg_sec bg04">
+            </div>
+            <div class="bg_sec bg05">
+            </div>
+        </div>
+        <section class="sec01 sec01_show" id="test_aaa">
 
+            <div class="layer" data-depth="0.8">
+                <div style="position: absolute;right: 0;top:5px;" id="p1_mask">
+                    <img src="img/mask.png" width="271"/>
+                </div>
+                <div style="position: absolute;right: 0;top:5px;display: none;" id="p1_maskb">
+                    <img src="img/mask_b.png" width="271"/>
+                </div>
+            </div>
+
+            <div class="p1-wcon" style="width: 100%; height: 100%;">
+                <div id="p1_w1">
+                    <img src="img/p1_w1.png" width="129"/>
+                </div>
+                <div id="p1_w2">
+                    <img src="img/p1_w2.png" width="165"/>
+                </div>
+                <div id="p1_w3">
+                    <img src="img/p1_w3.png" width="247"/>
+                </div>
+            </div>
+            <div id="draw-grey"></div>
+            <img id="broke_1" class="p1-broke" src="img/broke1.png"/>
+            <img id="broke_2" class="p1-broke" src="img/broke2.png"/>
+
+            <div class="drawing ui-corner-all" id="draw_con">
+                <canvas class="broken-canvas" id="draw-reflect"></canvas>
+                <canvas class="broken-canvas" id="draw-fractures"></canvas>
+                <canvas class="broken-canvas" id="draw-mainline"></canvas>
+                <canvas class="broken-canvas" id="draw-noise"></canvas>
+            </div>
+        </section>
+        <section class="sec02">
+            <div class="sec02_con">
+                <div>
+                    <img class="p2-clock" src="img/clock.png"/>
+                    <img class="p2-light" src="img/p2_light.png"/>
+                    <div class="p2-clockd"><img width="55px;" src="img/clock_d.png"/></div>
+                    <img class="p2-ww1" src="img/p2_w1.png"/>
+                    <img class="p2-w2" src="img/p2_w2.png"/>
+                </div>
+                <div class="layer" data-depth="0.8">
+                    <div class="p2-bgc">
+                        <img src="img/p2_bg.png" width="100%"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec03">
+            <div style="width: 100%;height: 100%;position:relative;">
+                <div>
+                    <div class="p3-ncon">
+                        <div id="p3_n_1" style="margin-right: 3px;" class="p3-n-u"></div>
+                        <div id="p3_n_2" style="margin-right: 3px;" class="p3-n-u"></div>
+                        <div id="p3_n_3" style="margin-right: 3px;" class="p3-n-u"></div>
+                        <div id="p3_n_4" style="margin-right: 3px;" class="p3-n-u"></div>
+                        <div id="p3_n_w" class="p3-n-u">
+                            <span>万</span>
+                        </div>
+                    </div>
+                    <img class="p3-ww1" src="img/p3_w1.png"/>
+                    <img class="p3-w2" src="img/p3_w2.png"/>
+                </div>
+                <div class="layer" data-depth="0.8">
+                    <div class="p2-bgc">
+                        <img src="img/p2_bg.png" width="100%"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec04 ">
+            <div style="width: 100%;height: 100%;position:relative;">
+                <div>
+                    <img class="p4-bb p4-b1" src="img/p4_b1.png"/>
+                    <img class="p4-bb p4-b2" src="img/p4_b2.png"/>
+                    <img class="p4-bb p4-b3" src="img/p4_b3.png"/>
+                    <img class="p4-ww1" src="img/p4_w1.png"/>
+                    <img class="p4-w2" src="img/p4_w2.png"/>
+                </div>
+                <div class="layer" data-depth="0.8">
+                    <div class="p2-bgc">
+                        <img src="img/p2_bg.png" width="100%"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec05 ">
+            <div style="width: 100%;height: 100%;position:relative;">
+                <div>
+                    <img class="p5-p1" src="img/p5_p1.png"/>
+                    <img class="p5-ww1" src="img/p5_w1.png"/>
+                    <a class="p5-link" id="down_link" target="_blank">
+                        <img class="p5-w2" src="img/p5_w2.png"/>
+                    </a>
+                </div>
+                <div class="p2-bgc">
+                    <img src="img/p2_bg.png" width="100%"/>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="p-next" id="c_next"><img src="img/next.png" width="39"/></div>
+<audio id="audioSource" autoplay="autoplay" preload="auto" loop="loop">
+</audio>
+<div id="music_c" data-s="0"></div>
 </body>
+<script src="js/page.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        if(/iphone/i.test(window.navigator.userAgent)){
+            $('#audioSource').append('<source src="../img/AAmusic0730.mp3" type="audio/mp3">');
+        }else{
+            $('#audioSource').append('<source src="../img/AAmusic0730.ogg" type="audio/ogg">');
+        }
+        $('#music_c').css('background-image', 'url(img/music_on.png)');
+        $('#music_c').on('click', function() {
+            if($(this).data('s') == '0') {
+                $('#audioSource')[0].play();
+                $('#music_c').css('background-image', 'url(img/music_on.png)');
+                $(this).data('s', '1')
+            } else {
+                $('#audioSource')[0].pause();
+                $('#music_c').css('background-image', 'url(img/music_off.png)');
+                $(this).data('s', '0')
+            }
+        });
+        $('#audioSource')[0].play();
+        $('#down_link').on('click', function() {
+            location.href = 'http://www.chinaamc.com/yingxiao/wsjy/sms/h.html';
+        });
+    });
+</script>
+
 </html>
