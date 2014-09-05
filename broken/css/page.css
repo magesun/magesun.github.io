@@ -357,3 +357,12 @@ section{display: block;}
     z-index: 9999;
     background-repeat: no-repeat;
 }
+.bottom-text{
+    position: absolute;
+    text-align: center;
+    left: 0;
+    width: 100%;
+    bottom: 10px;
+    font-size: 10px;
+    color: #999;
+}
